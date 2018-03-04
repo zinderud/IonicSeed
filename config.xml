@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.ionicframework.clickerf0281363" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Clicker</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="shazleto@gmail.com" href="http://ionicframework.com/">Stephen Hazleton</author>
+<widget id="com.ionicframework.zinderud" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>ionicseed</name>
+    <description>  Ionic seed.</description>
+    <author email="mokosam@gmail.com" href="http://ionicframework.com/">murat onur</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />

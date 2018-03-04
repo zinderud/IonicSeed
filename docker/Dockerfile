@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 
-WORKDIR /root/clicker
+WORKDIR /root/IonicSeed
 
 # copy source code from build context
 COPY . .
