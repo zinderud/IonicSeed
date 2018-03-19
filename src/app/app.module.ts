@@ -1,26 +1,36 @@
-import { NgModule, ErrorHandler } from "@angular/core";
+import { PROVIDERS, PAGEMODULE } from './app.imports';
+import { BrowserModule } from '@angular/platform-browser';
+import { ErrorHandler, NgModule } from '@angular/core';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpClient, HttpClientModule } from "@angular/common/http";
-import { BrowserModule } from "@angular/platform-browser";
+ 
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
-import { IonicApp, IonicModule, IonicErrorHandler } from "ionic-angular";
-import { ClickerApp } from "./app.component";
-import { ClickerList, PagesModule, Page2 } from "../pages";
-import { MODULES, PROVIDERS ,DIRECTIVES} from "./app.imports";
-import { PipesModule } from "../pipes/pipes.module";
+import { MyApp } from './app.component';
+ 
+import { PagesModule } from '../pages';
+import { IonicStorageModule,Storage } from '@ionic/storage';
+ 
+import { ComponentsModule } from '../components';
+import { SettingsDataService } from '../providers/util/settings.service';
+import { ConverterService } from '../providers/util/converter.service';
+import { StorageService } from '../services';
+
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
 
 @NgModule({
-  declarations: [DIRECTIVES,ClickerApp],
+  declarations: [
+    MyApp
+  
+  ],
   imports: [
-    MODULES,
-    PipesModule,
-    HttpClientModule,
+    BrowserModule,
+    HttpClientModule,PAGEMODULE,
     PagesModule,
-    IonicModule.forRoot(ClickerApp),
-
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -30,7 +40,14 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     })
   ],
   bootstrap: [IonicApp],
-  entryComponents: [ClickerApp, ClickerList, Page2],
-  providers: [PROVIDERS, { provide: ErrorHandler, useClass: IonicErrorHandler }]
+  entryComponents: [
+    MyApp
+    
+  ],
+  providers: [ ...PROVIDERS,
+    {provide: StorageService, useClass: StorageService, deps: [Storage]},
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    SettingsDataService,ConverterService
+  ]
 })
 export class AppModule {}

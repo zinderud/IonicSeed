@@ -1,21 +1,22 @@
+
 import { NgModule }         from '@angular/core';
 import { TranslateModule }  from '@ngx-translate/core';
 import { IonicModule }      from 'ionic-angular';
 import { ComponentsModule } from '../components';
-import { ClickerList }      from './clickerList/clickerList';
-import { Page2 }            from './page2/page2';
+import { ListPage ,HomePage} from './';
+ 
+ 
 
 @NgModule({
-  declarations: [
-    ClickerList,
-    Page2,
+  declarations: [HomePage,ListPage
+  
   ],
   imports: [ IonicModule, ComponentsModule, TranslateModule ],
   exports: [
-    ClickerList,
-    // Page2,
+    HomePage,ListPage
   ],
-  entryComponents: [],
+  entryComponents: [ HomePage,
+    ListPage],
   providers: [ ],
 })
 

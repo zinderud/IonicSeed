@@ -1,4 +1,6 @@
-<ion-select [(ngModel)]="language" (ngModelChange)="setLanguage($event)">
-  <ion-option value="en">English</ion-option>
-  <ion-option value="zh-hans">Chinese</ion-option>
+<ion-select [(ngModel)]="currentSettings.language" (ngModelChange)="onUpdate()" cancelText="{{ 'CANCEL' | translate }}">
+  <ion-option *ngFor="let item of objectKeys(availableOptions?.languages)" [value]="item">
+    {{ availableOptions?.languages[item] }}
+  </ion-option>
 </ion-select>
+

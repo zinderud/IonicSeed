@@ -1,0 +1,61 @@
+<ion-header no-shadow no-border>
+
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>{{ 'SETTINGS_PAGE.SETTINGS' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content *ngIf="availableOptions && currentSettings">
+
+  <ion-list>
+
+    <ion-item-group>
+      <ion-item detail-push>
+        <ion-icon name="ios-globe-outline" color="primary" item-start></ion-icon>
+        <ion-label>{{ 'SETTINGS_PAGE.LANGUAGE' | translate }}</ion-label>
+        <ion-select [(ngModel)]="currentSettings.language" (ngModelChange)="onUpdate()" cancelText="{{ 'CANCEL' | translate }}">
+          <ion-option *ngFor="let item of objectKeys(availableOptions?.languages)" [value]="item">
+            {{ availableOptions?.languages[item] }}
+          </ion-option>
+        </ion-select>
+      </ion-item>
+  
+    </ion-item-group>
+ 
+    <ion-item-group>
+      <ion-item detail-push>
+        <ion-icon name="ios-globe-outline" color="primary" item-start></ion-icon>
+        <ion-label>{{ 'SETTINGS_PAGE.WEIGHT' | translate }}</ion-label>
+        <ion-select [(ngModel)]="currentSettings.weight" (ngModelChange)="onUpdate()" cancelText="{{ 'CANCEL' | translate }}">
+          <ion-option *ngFor="let item of objectKeys(availableOptions?.weights)" [value]="item">
+            {{ availableOptions?.weights[item] }}
+          </ion-option>
+        </ion-select>
+      </ion-item>
+  
+    </ion-item-group>
+    <ion-item-group>
+      <ion-item detail-push>
+        <ion-icon name="ios-globe-outline" color="primary" item-start></ion-icon>
+        <ion-label>{{ 'SETTINGS_PAGE.HEIGHT' | translate }}</ion-label>
+        <ion-select [(ngModel)]="currentSettings.height" (ngModelChange)="onUpdate()" cancelText="{{ 'CANCEL' | translate }}">
+          <ion-option *ngFor="let item of objectKeys(availableOptions?.heights)" [value]="item">
+            {{ availableOptions?.heights[item] }}
+          </ion-option>
+        </ion-select>
+      </ion-item>
+  
+    </ion-item-group>
+
+ 
+
+ 
+
+  </ion-list>
+</ion-content>
+
+ 

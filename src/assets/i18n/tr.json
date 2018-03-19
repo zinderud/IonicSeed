@@ -1,0 +1,31 @@
+{
+  "MENU": {
+    "TITLE": "Sayfalar",
+    "HOME": "ana sayfa ",
+    "LIST": "liste"
+  },
+
+  "TITLE": {
+    "HOMEPAGE": "Ana Sayfa Title"
+  },
+  "DEMO MESSAGE": "Demo mesaj",
+  "CLOSE": "kapat",
+  "NO ALERT AVABILE": "yalnış alarm",
+  "OK": "tamam",
+  "CANCEL": "İptal",
+  "SETTINGS_PAGE": {
+    "ABOUT": "Hakkında",
+    "LANGUAGE": "Diller",
+    "SETTINGS": "Ayarlar",
+    "WEIGHT": "Ağırlık",
+    "HEIGHT": "Uzunluk"
+  },
+  "BODY_SURFACE_FIELD": {
+    "TITLE": "Vücut Yüzey Alan" 
+  },
+  "ERROR":{
+    "FIELD_IS_REQUIRED":"Alan boş"
+     
+  }
+  
+}

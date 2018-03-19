@@ -4,11 +4,15 @@
       <ion-col><button ion-button menuToggle><ion-icon name="menu"></ion-icon></button></ion-col>
       <ion-col><ion-title>{{title | translate}}</ion-title></ion-col>
       <ion-col><language-picker></language-picker></ion-col>
+   <!--    <ion-col><height-picker></height-picker></ion-col>
+      <ion-col><weight-picker></weight-picker></ion-col> -->
     </ion-row>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="message bye-ionic">
-  <button ion-button (click)="showSimpleAlert()">{{'BUTTON.SHOW_SIMPLE' | translate}}</button>
-  <button ion-button (click)="showMoreAdvancedAlert()"> {{'BUTTON.SHOW_ADVANCED' | translate}}</button>
+<ion-content padding>
+  <h3>Ionic Menu Starter</h3>
+ 
+
+  <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>

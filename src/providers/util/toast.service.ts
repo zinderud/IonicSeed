@@ -1,24 +1,37 @@
 import { Injectable } from '@angular/core';
-import { Toast, ToastController } from 'ionic-angular';
+import { ToastController, ToastOptions as OriginalToastOptions, Toast } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
+
+interface BetterToastOptions {
+  duration: number;
+}
+
+export type ToastOptions = OriginalToastOptions & BetterToastOptions;
 
 @Injectable()
-export class ToastService {
+export class TranslateToastController {
 
-  toast: Toast;
-  constructor(public toastCtrl: ToastController) { }
-
-  create(message, ok = false, duration = 2000) {
-    if (this.toast) {
-      this.toast.dismiss();
-    }
-
-    this.toast = this.toastCtrl.create({
-      message,
-      duration: ok ? null : duration,
-      position: 'bottom',
-      showCloseButton: ok,
-      closeButtonText: 'OK'
-    });
-    this.toast.present();
+  constructor(private translate: TranslateService, private toastCtrl: ToastController) {
   }
+
+  async create(opts?: ToastOptions): Promise<Toast> {
+    const toTranslate = ['message', 'closeButtonText'];
+    if (opts) {
+      for (const key of toTranslate) {
+        if (opts[key]) {
+          opts[key] = await this.translate.get(opts[key]).toPromise();
+        }
+      }
+    }
+    return this.toastCtrl.create(opts);
+  }
+
+  async show(opts?: ToastOptions): Promise<Toast> {
+    const toast = await this.create(opts);
+    await toast.present();
+    return toast;
+  }
+
+
+
 }

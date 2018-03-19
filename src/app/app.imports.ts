@@ -3,8 +3,9 @@ import { AppState } from "./app.global";
 
 // Providers
 import { ClickersService, StorageService } from "../services";
-import { ToastService } from "../providers/util/toast.service";
-import { AlertService } from "../providers/util/alert.service";
+import { TranslateToastController } from "../providers/util/toast.service";
+import { TranslateAlertService } from "../providers/util/alert.service";
+import { ConverterService } from "../providers/util/converter.service";
 import { CameraProvider } from "../providers/util/camera.provider";
 import { NativeGoogleMapsProvider } from "../providers/native-google-maps/native-google-maps";
 
@@ -23,12 +24,13 @@ import { GoogleMaps } from "@ionic-native/google-maps";
 // Modules
 import { SwingModule } from "angular2-swing";
 import { BrowserModule } from "@angular/platform-browser";
+import { SettingsPageModule } from "../pages/settings/settings.module";
+
 
 export const MODULES = [SwingModule, BrowserModule];
 
 export const PROVIDERS = [
-  AlertService,
-  ToastService,
+  TranslateToastController,TranslateAlertService,ConverterService,
   AppState,
   CameraProvider,
   NativeGoogleMapsProvider,
@@ -47,4 +49,5 @@ export const PROVIDERS = [
   GoogleMaps
 ];
 
+export const PAGEMODULE=[SettingsPageModule]
 export const DIRECTIVES = [];
